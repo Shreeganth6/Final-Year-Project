@@ -1,1 +1,0 @@
-Shreeganth will handle frontend for the project
