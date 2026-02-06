@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import { useRouter } from 'expo-router'; // 1. Import the router
 
 const EXPENSES = [
-  { id: '1', title: 'Dinner in Paris', amount: '₹45.00', category: '🍴 Food' },
-  { id: '2', title: 'Uber to Airport', amount: '₹22.50', category: '🚕 Transport' },
-  { id: '3', title: 'Hotel Stay', amount: '₹120.00', category: '🏨 Stay' },
+  { id: '1', title: 'Dinner in Goa', amount: '₹850', category: '🍴 Food' },
+  { id: '2', title: 'Flight to Delhi', amount: '₹4,500', category: '✈️ Travel' },
+  { id: '3', title: 'Hotel Booking', amount: '₹2,200', category: '🏨 Stay' },
 ];
 
 export default function Dashboard() {
+  const router = useRouter(); // 2. Initialize the router
+
   return (
     <View style={styles.container}>
       {/* Header & Balance Section */}
@@ -15,17 +18,20 @@ export default function Dashboard() {
         <Text style={styles.welcome}>My Trips ✈️</Text>
         <View style={styles.balanceCard}>
           <Text style={styles.balanceLabel}>Total Spent (Current Trip)</Text>
-          <Text style={styles.balanceAmount}>₹1,240.50</Text>
+          <Text style={styles.balanceAmount}>₹ 12,240.50</Text>
           <View style={styles.row}>
-             <Text style={styles.subBalance}>Budget: ₹2,000</Text>
-             <Text style={styles.subBalance}>Remaining: ₹759.50</Text>
+             <Text style={styles.subBalance}>Budget: ₹ 20,000</Text>
+             <Text style={styles.subBalance}>Remaining: ₹ 7,759.50</Text>
           </View>
         </View>
       </View>
 
       {/* Quick Actions */}
       <View style={styles.actions}>
-        <TouchableOpacity style={styles.actionBtn}>
+        <TouchableOpacity 
+          style={styles.actionBtn} 
+          onPress={() => router.push('./create-trip')} // 3. Navigate to Create Trip
+        >
           <Text style={styles.actionBtnText}>+ Create New Trip</Text>
         </TouchableOpacity>
       </View>
@@ -49,7 +55,10 @@ export default function Dashboard() {
       </View>
 
       {/* Floating Add Button */}
-      <TouchableOpacity style={styles.fab}>
+      <TouchableOpacity 
+        style={styles.fab} 
+        onPress={() => router.push('./add-expense')} // 4. Navigate to Add Expense
+      >
         <Text style={styles.fabText}>+</Text>
       </TouchableOpacity>
     </View>
