@@ -18,10 +18,10 @@ export default function Dashboard() {
         <Text style={styles.welcome}>My Trips ✈️</Text>
         <View style={styles.balanceCard}>
           <Text style={styles.balanceLabel}>Total Spent (Current Trip)</Text>
-          <Text style={styles.balanceAmount}>₹ 12,240.50</Text>
+          <Text style={styles.balanceAmount}>₹ 7550</Text>
           <View style={styles.row}>
              <Text style={styles.subBalance}>Budget: ₹ 20,000</Text>
-             <Text style={styles.subBalance}>Remaining: ₹ 7,759.50</Text>
+             <Text style={styles.subBalance}>Remaining: ₹ 12,450</Text>
           </View>
         </View>
       </View>
